@@ -13,7 +13,7 @@ body {
 }
 
 /* three.js automagically generates the canvas, we're using full screen */
-.scene,
+#scene,
 canvas {
     position: absolute;
     width: 100%;
