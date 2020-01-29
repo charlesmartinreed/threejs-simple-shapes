@@ -1,2 +1,2 @@
 ### Attributions
-- House Model courtesy of [makcutka250](https://sketchfab.com/3d-models/house-74797358830a47eb982a0cb69a732461)
+- House Model courtesy of [NATHRAMN](https://sketchfab.com/3d-models/free-game-ready-low-poly-medieval-house-c73ab42ddc90403aa6d5b79d79970e84)

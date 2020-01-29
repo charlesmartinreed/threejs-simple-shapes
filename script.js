@@ -5,7 +5,7 @@ let scene;
 let obj;
 
 function init(){
-    container = document.getElementById('scene');
+    container = document.querySelector('.scene');
 
     // create scene, add to container
     scene = new THREE.Scene();
@@ -19,9 +19,15 @@ function init(){
     const far = 500;
 
     camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
+    const ambient = new THREE.AmbientLight(0x404040, 3);
+    scene.add(ambient);
 
     // default camera position in X, Y, Z
-    camera.position.set(-8, 4, 50);
+    camera.position.set(-4, 3, 20);
+
+    const light = new THREE.DirectionalLight(0xFFFFFF, 8);
+    light.position.set(2, 2, 2);
+    scene.add(light);
 
     renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
     renderer.setSize(container.clientWidth, container.clientHeight)
@@ -33,8 +39,15 @@ function init(){
     loader.load('./models/house/scene.gltf', function(gltf){
         // gltf is a large object with things like the attached scene, position, etc.
         scene.add(gltf.scene);
-        renderer.render(scene, camera)
+        obj = gltf.scene.children[0];
+        animate()
     })
+}
+
+function animate() {
+    requestAnimationFrame(animate)
+    obj.rotation.z += 0.005;
+    renderer.render(scene, camera)
 }
 
 init()
