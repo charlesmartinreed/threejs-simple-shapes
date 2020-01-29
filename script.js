@@ -25,7 +25,7 @@ function init(){
     // default camera position in X, Y, Z
     camera.position.set(-4, 3, 20);
 
-    const light = new THREE.DirectionalLight(0xFFFFFF, 8);
+    const light = new THREE.DirectionalLight(0xFFFFFF, 2);
     light.position.set(2, 2, 2);
     scene.add(light);
 
@@ -50,4 +50,19 @@ function animate() {
     renderer.render(scene, camera)
 }
 
+function onWindowResize() {
+    camera.aspect = container.clientWidth / container.clientHeight;
+    if (container.clientWidth < 780) {
+        camera.position.set(0, 3, 20);
+    } else if (container.clientWidth > 780) {
+        camera.position.set(-4, 3, 20);
+    }
+
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(container.clientWidth, container.clientHeight);
+}
+
 init()
+
+window.addEventListener('resize', onWindowResize)

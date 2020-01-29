@@ -29,6 +29,7 @@ body {
 .informational a {
     text-decoration: none;
     color: rgb(16, 16, 16);
+    transition: all 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 
 .informational a:hover {
@@ -44,4 +45,17 @@ canvas {
     background: #141E30;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@media screen and (max-width: 880px) {
+    .informational p {
+        font-size: 2.1rem;
+    }
+}
+
+@media screen and (max-width: 772px) {
+    .informational {
+        top: 10%;
+        left: 5%;
+    }
 }
